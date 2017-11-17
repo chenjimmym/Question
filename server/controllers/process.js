@@ -17,14 +17,16 @@ module.exports = {
     },
 
     getAllQuestion: function(req, res){
-        Question.find({}, function(err, questions){
+        // Question.find({}, function(err, questions){
+        //     res.json(questions);
+        // })
+        Question.find({}).populate('answer').exec(function(err, questions){
             res.json(questions);
         })
     },
 
     getOneQuestion: function(req, res){
-        Question.findOne({_id: req.params.id}, function(err, question){
-            console.log('one returned question',question);
+        Question.findOne({_id: req.params.id}).populate('answer').exec(function(err, question){
             res.json(question);
         })
     },

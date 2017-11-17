@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QaService } from '../qa.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addanswer',
@@ -15,7 +16,7 @@ export class AddanswerComponent implements OnInit {
   answer;
   detail;
 
-  constructor(private _route: ActivatedRoute, private _qaService: QaService) { }
+  constructor(private _route: ActivatedRoute, private _qaService: QaService, private router: Router) { }
 
   ngOnInit() {
     this.loggedUser = this._qaService.getLoggedUser();
@@ -30,9 +31,8 @@ export class AddanswerComponent implements OnInit {
   }
 
   onAddAnswer(){
-    console.log('from addanswer form', this.answer);
-    console.log('from addanswer form', this.detail);
     this._qaService.addAnswer(this.id, this.loggedUser, this.answer, this.detail);
+    this.router.navigate(['/question', this.id]);
   }
 
 }

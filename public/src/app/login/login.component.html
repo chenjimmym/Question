@@ -8,8 +8,7 @@
   minlength="3" 
   [(ngModel)]="loggedUser" 
   #err='ngModel'>
-  Errors: {{ err.errors | json }}
-  Valid: {{ err.valid | json }}
+
   <p *ngIf="!err.valid">Name requires atleast 3 characters</p>
   <br>
 <input *ngIf="!(err.valid)" disabled=true type="submit" value="Enter">

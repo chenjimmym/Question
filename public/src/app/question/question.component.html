@@ -1,8 +1,17 @@
-<p>question</p>
+
 
 <a href="">Logout</a>
 <br><br>
 <a [routerLink]="['/dash']">Home</a>
 <br>
 <h1>{{question.question}}</h1>
+<a (click)="onClickAnswer(question._id)">Answer This Question</a>
 <h2>{{question.description}}</h2>
+<hr>
+
+<span *ngFor = "let answer of question.answer">
+    <p>{{answer.asker}}:</p>
+    <h3>{{answer.answer}}</h3>
+    <p>{{answer.detail}}</p>
+    <hr>
+</span>

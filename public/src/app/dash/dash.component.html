@@ -1,4 +1,4 @@
-<p>dash</p>
+
 
 <a href="">Logout</a>
 <br><br>
@@ -16,8 +16,8 @@
         <th>Action</th>
     </tr>
     <tr *ngFor="let question of questions">
-        <td>{{question.question}}-{{question._id}}</td>
-        <td>number holder</td>
+        <td>{{question.question}}</td>
+        <td>-{{question.answer.length}}-</td>
         <td><a style="color: rgb(0, 0, 151)" (click)="onClickShow(question._id)"> Show </a> 
             <a style="color: rgb(0, 0, 151)" (click)="onClickAnswer(question._id)"> Answer </a></td>
     </tr>
