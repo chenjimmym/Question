@@ -1,0 +1,26 @@
+<p>add question</p>
+
+<h1>New Question</h1>
+
+<form (submit)="onAddQuestion()">
+  Question:
+  <input 
+  type="text" 
+  name="question" 
+  required 
+  minlength="10" 
+  [(ngModel)]="question" 
+  #err='ngModel'>
+  Errors: {{ err.errors | json }}
+  Valid: {{ err.valid | json }}
+  <p *ngIf="!err.valid">Question requires atleast 10 characters</p>
+  <br>
+  Description (optional)
+  <input 
+  type="text" 
+  name="description" 
+  [(ngModel)]="description">
+  <br>
+<input *ngIf="!(err.valid)" disabled=true type="submit" value="Submit">
+<input *ngIf="err.valid" type="submit" value="Submit">
+</form>

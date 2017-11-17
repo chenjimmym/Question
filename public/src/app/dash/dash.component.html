@@ -1,0 +1,25 @@
+<p>dash</p>
+
+<a href="">Logout</a>
+<br><br>
+
+<h1>Hi {{loggedUser}}!</h1>
+<br>
+
+<a [routerLink]="['/addquestion']">Add a Question</a>
+<br>
+
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Answers</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let question of questions">
+        <td>{{question.question}}-{{question._id}}</td>
+        <td>number holder</td>
+        <td><a style="color: rgb(0, 0, 151)" (click)="onClickShow(question._id)"> Show </a> 
+            <a style="color: rgb(0, 0, 151)" (click)="onClickAnswer(question._id)"> Answer </a></td>
+    </tr>
+
+</table>

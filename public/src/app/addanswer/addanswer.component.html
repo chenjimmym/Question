@@ -1,0 +1,28 @@
+
+<a href="">Logout</a>
+<br><br>
+<a [routerLink]="['/dash']">Home</a>
+<br>
+<h1>{{question.question}}</h1>
+<h2>{{question.description}}</h2>
+
+<form (submit)="onAddAnswer()">
+  Your Answer:
+  <input 
+  type="text" 
+  name="answer" 
+  required 
+  minlength="5" 
+  [(ngModel)]="answer" 
+  #err='ngModel'>
+  <p *ngIf="!err.valid">Answer requires atleast 5 characters</p>
+  <br>
+  Supporting details for your answer (optional):
+  <input 
+  type="text" 
+  name="detail" 
+  [(ngModel)]="detail">
+  <br>
+<input *ngIf="!(err.valid)" disabled=true type="submit" value="Submit">
+<input *ngIf="err.valid" type="submit" value="Submit">
+</form>
